@@ -1,0 +1,31 @@
+<div class="centered-form">
+  <mat-card appearance="outlined">
+    <mat-card-header style="margin-left: 40%;">    
+      <mat-card-title>Log In</mat-card-title>    
+    </mat-card-header>  
+    <br>
+    <mat-card-content>   
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <input type="email" name="email" class="form-control" [(ngModel)]="loginData.email" required #email="ngModel"
+          aria-describedby="emailHelp" minlength="6" />
+        <div *ngIf="email.invalid && email.touched" class="text-danger">
+          Email is required and must be valid.
+        </div>      
+        <br>      
+        <input type="password" name="password" class="form-control" [(ngModel)]="loginData.password" required minlength="6"
+          #password="ngModel" />
+        <div *ngIf="password.invalid && password.touched" class="text-danger">
+          Password is required (min 6 characters).
+        </div>      
+        <br>      
+        <button style="margin-left: 40%;" type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">
+          Submit
+        </button>
+      </form>
+      
+    </mat-card-content>  
+  </mat-card>
+</div>
+
+
+
