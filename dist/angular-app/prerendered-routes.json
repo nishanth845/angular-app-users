@@ -1,0 +1,10 @@
+{
+  "routes": [
+    "/",
+    "/childOne",
+    "/home",
+    "/homeTwo",
+    "/login",
+    "/parent"
+  ]
+}
