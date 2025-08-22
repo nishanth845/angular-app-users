@@ -5,11 +5,12 @@ import { LoginService } from '../services/login.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from "../header/header.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Child1Component,Child2Component,MatCardModule, MatButtonModule,CommonModule],
+  imports: [Child1Component, Child2Component, MatCardModule, MatButtonModule, CommonModule, HeaderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
