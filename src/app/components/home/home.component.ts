@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { Child1Component } from '../child-1/child-1.component';
 import { Child2Component } from '../child-2/child-2.component';
-import { LoginService } from '../services/login.service';
+import { LoginService } from '../../services/login.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from "../header/header.component";
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Child1Component, Child2Component, MatCardModule, MatButtonModule, CommonModule, HeaderComponent],
+  imports: [RouterModule, MatCardModule, MatButtonModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

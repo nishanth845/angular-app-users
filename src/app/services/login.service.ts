@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders} from '@angular/common/http';
-import { LoginForm } from '../interfaces/data-structure.interface';
+import { LoginForm } from '../../app/components/interfaces/data-structure.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class LoginService {
     return this.http.post(`${this.apiUrl}login`,params,{headers});
   }
 
-  getUserList(){ 
+  getUserList(){
     return this.http.get(`${this.apiUrl}users?page=2`);
   }
 }
