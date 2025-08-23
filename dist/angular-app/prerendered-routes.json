@@ -1,7 +1,9 @@
 {
   "routes": [
     "/",
+    "/about",
     "/childOne",
+    "/contact",
     "/home",
     "/homeTwo",
     "/login",
