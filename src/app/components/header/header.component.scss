@@ -1,0 +1,59 @@
+.navbar-brand {
+  font-weight: bold;
+  color: #007bff !important;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #007bff !important;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+/* Ensure navbar items are always visible */
+.navbar-nav {
+  flex-direction: row;
+  gap: 1rem;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .nav-link {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-outline-success {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-nav {
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    padding: 0.2rem 0.3rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* PWA specific styles */
+@media (display-mode: standalone) {
+  .navbar {
+    padding-top: env(safe-area-inset-top);
+  }
+}

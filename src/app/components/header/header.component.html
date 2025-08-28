@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" routerLink="/home">Loan App</a>
+
+    <!-- Always visible menu - no collapse -->
+    <div class="navbar-nav me-auto">
+      <a
+        class="nav-link"
+        [class.active]="isActive('/home')"
+        aria-current="page"
+        routerLink="/home">
+        Home
+      </a>
+      <a
+        class="nav-link"
+        [class.active]="isActive('/about')"
+        routerLink="/about">
+        About
+      </a>
+      <a
+        class="nav-link"
+        [class.active]="isActive('/contact')"
+        routerLink="/contact">
+        Contact
+      </a>
+    </div>
+
+    <!-- Logout always visible -->
+    <button
+      class="btn btn-outline-success"
+      type="button"
+      (click)="logout()">
+      Logout
+    </button>
+  </div>
+</nav>
