@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'Recent Angular Features';
-  showHeader = true;
+  showHeader = false;
   constructor(private router : Router) {
     this.router.events.subscribe(event => {
       console.log(event);
