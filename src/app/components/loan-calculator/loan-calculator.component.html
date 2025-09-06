@@ -1,0 +1,28 @@
+<!-- loan-calculator.component.html -->
+<div class="calculator-container">
+  <form [formGroup]="loanForm" (ngSubmit)="calculate()">
+    <div class="form-group">
+      <label>Loan Amount</label>
+      <input type="number" formControlName="amount" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Interest Rate (%)</label>
+      <input type="number" formControlName="rate" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Tenure (Years)</label>
+      <input type="number" formControlName="years" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn-calc">Calculate EMI</button>
+  </form>
+
+  <div *ngIf="emi !== null" class="results">
+    <h3>Results</h3>
+    <p>Monthly EMI: <strong>{{ emi | currency:'INR' }}</strong></p>
+    <p>Total Payment: <strong>{{ totalPayment | currency:'INR' }}</strong></p>
+    <p>Total Interest: <strong>{{ totalInterest | currency:'INR' }}</strong></p>
+  </div>
+</div>

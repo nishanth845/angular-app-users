@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { HomeComponent } from "./components/home/home.component";
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
