@@ -2,11 +2,9 @@
   "routes": [
     "/",
     "/about",
-    "/childOne",
+    "/calculator",
     "/contact",
     "/home",
-    "/homeTwo",
-    "/login",
-    "/parent"
+    "/login"
   ]
 }
