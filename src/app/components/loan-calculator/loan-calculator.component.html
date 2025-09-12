@@ -16,8 +16,15 @@
       <input type="number" formControlName="years" class="form-control" />
     </div>
 
-    <button type="submit" class="btn-calc">Calculate EMI</button>
+    <button type="submit" class="btn-calc">Calculate EMI</button>  
   </form>
+
+  <div style="text-align:center; margin-top:20px;">
+  <h2>Counter Value: {{ count$ | async }}</h2>
+
+  <button (click)="onIncrement()">➕ Increment</button>
+  <button (click)="onDecrement()">➖ Decrement</button>
+</div>
 
   <div *ngIf="emi !== null" class="results">
     <h3>Results</h3>
