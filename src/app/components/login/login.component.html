@@ -1,31 +1,64 @@
-<div class="centered-form">
-  <mat-card appearance="outlined">
-    <mat-card-header style="margin-left: 40%;">    
-      <mat-card-title>Log In</mat-card-title>    
-    </mat-card-header>  
-    <br>
-    <mat-card-content>   
-      <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
-        <input type="email" name="email" class="form-control" [(ngModel)]="loginData.email" required #email="ngModel"
-          aria-describedby="emailHelp" minlength="6" />
-        <div *ngIf="email.invalid && email.touched" class="text-danger">
-          Email is required and must be valid.
-        </div>      
-        <br>      
-        <input type="password" name="password" class="form-control" [(ngModel)]="loginData.password" required minlength="6"
-          #password="ngModel" />
-        <div *ngIf="password.invalid && password.touched" class="text-danger">
-          Password is required (min 6 characters).
-        </div>      
-        <br>      
-        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">
-          Submit
+<div class="login-wrapper">
+  <mat-card class="login-card" appearance="outlined">
+    <mat-card-header class="login-header">      
+      <mat-card-title>Welcome Back</mat-card-title>
+      <mat-card-subtitle>Please log in to continue</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="login-form">
+        <!-- Email -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            type="email"
+            name="email"
+            [(ngModel)]="loginData.email"
+            required
+            minlength="6"
+            #email="ngModel"
+            placeholder="Enter your email"
+          />
+          <mat-icon matSuffix>mail</mat-icon>
+          <mat-error *ngIf="email.invalid && email.touched">
+            Email is required and must be valid.
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            name="password"
+            [(ngModel)]="loginData.password"
+            required
+            minlength="6"
+            #password="ngModel"
+            placeholder="Enter your password"
+          />
+          <mat-icon matSuffix>lock</mat-icon>
+          <mat-error *ngIf="password.invalid && password.touched">
+            Password is required (min 6 characters).
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Submit -->
+        <button
+          mat-raised-button
+          color="primary"
+          class="login-btn"
+          [disabled]="loginForm.invalid"
+        >
+          <mat-icon>login</mat-icon>&nbsp;Login
         </button>
       </form>
-      
-    </mat-card-content>  
+    </mat-card-content>
+
+    <mat-card-actions class="login-footer">
+      <a href="#" class="forgot-link">Forgot Password?</a>
+    </mat-card-actions>
   </mat-card>
 </div>
-
-
-

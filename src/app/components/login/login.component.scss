@@ -1,344 +1,133 @@
-/* PWA Login Form Styles */
+/* 🌤 Clean, elegant, vertically centered login screen */
 
-/* Reset and base styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff, #e6ecff);
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Main Card */
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: #ffffff;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers header and form together */
+  padding: 40px 30px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
   }
-  
-  html {
-    height: 100%;
+}
+
+/* Centered Header */
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+
+  .login-icon {
+    font-size: 54px;
+    color: #3f51b5;
+    margin-bottom: 10px;
   }
-  
-  html, body {
-    height: 100%;
-  }
-  
-  body {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  /* Main container */
-  .centered-form {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: calc(100% - 32px);
-    max-width: 400px;
-    z-index: 1000;
-    animation: slideUp 0.6s ease-out;
-  }
-  
-  /* Card styles */
-  mat-card {
-    border-radius: 16px !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.95) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  mat-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
-  }
-  
-  /* Header styles */
-  mat-card-header {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    padding: 24px !important;
-    text-align: center;
-    margin: 0 !important;
-    position: relative;
-  }
-  
-  mat-card-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
-    opacity: 0.3;
-  }
-  
+
   mat-card-title {
-    font-size: 28px !important;
-    font-weight: 600 !important;
-    margin: 0 !important;
-    position: relative;
-    z-index: 1;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Content area */
-  mat-card-content {
-    padding: 32px 24px 24px !important;
-    background: white;
-  }
-  
-  /* Form styles */
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  /* Input field styles */
-  .form-control {
-    width: 100%;
-    padding: 14px 16px;
-    border: 2px solid #e1e5e9;
-    border-radius: 12px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    background: #f8f9fa;
-    font-family: inherit;
-  }
-  
-  .form-control:focus {
-    outline: none;
-    border-color: #667eea;
-    background: white;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-    transform: translateY(-1px);
-  }
-  
-  .form-control:hover {
-    border-color: #c2c8d4;
-    background: white;
-  }
-  
-  .form-control::placeholder {
-    color: #6c757d;
-    font-weight: 400;
-  }
-  
-  /* Error message styles */
-  .text-danger {
-    color: #dc3545;
-    font-size: 14px;
-    margin-top: 6px;
-    padding-left: 4px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  
-  .text-danger::before {
-    content: '⚠';
-    font-size: 12px;
-  }
-  
-  /* Button styles */
-  .btn {
-    width: 100%;
-    padding: 14px 24px;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: none;
-    font-family: inherit;
-    position: relative;
-    overflow: hidden;
-    margin: 0 !important; /* Override any inline margin styles */
     display: block;
+    font-weight: 600;
+    font-size: 1.7rem;
+    color: #3f51b5;
+    margin-bottom: 4px;
   }
-  
-  .btn-primary {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+
+  mat-card-subtitle {
+    font-size: 0.95rem;
+    color: #757575;
   }
-  
-  .btn-primary:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-  }
-  
-  .btn-primary:active:not(:disabled) {
-    transform: translateY(0);
-  }
-  
-  .btn:disabled {
-    background: #e9ecef;
-    color: #6c757d;
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
-  }
-  
-  /* Loading state */
-  .btn.loading {
-    pointer-events: none;
-  }
-  
-  .btn.loading::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 50%;
-    left: 50%;
-    margin-left: -10px;
-    margin-top: -10px;
-    border: 2px solid transparent;
-    border-top-color: currentColor;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-  
-  /* Animations */
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
+}
+
+/* Form Styling */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  mat-form-field {
+    width: 100%;
+
+    ::ng-deep .mat-mdc-text-field-wrapper {
+      border-radius: 10px;
+      background-color: #f8f9ff;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    ::ng-deep input {
+      font-size: 15px;
     }
   }
-  
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
+
+  mat-error {
+    font-size: 0.8rem;
+    color: #e53935;
+  }
+}
+
+/* Button Styling */
+.login-btn {
+  width: 100%;
+  margin-top: 10px;
+  height: 46px;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #3f51b5 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 10px rgba(63, 81, 181, 0.3);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #3949ab !important;
+    box-shadow: 0 6px 16px rgba(63, 81, 181, 0.4);
+  }
+
+  mat-icon {
+    margin-right: 6px;
+  }
+}
+
+/* Footer */
+.login-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+
+  .forgot-link {
+    font-size: 0.85rem;
+    color: #3f51b5;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #1a237e;
+      text-decoration: underline;
     }
   }
-  
-  /* Mobile-first responsive design */
-  @media (max-width: 480px) {
-    body {
-      padding: 8px;
-    }
-    
-    .centered-form {
-      max-width: 100%;
-    }
-    
-    mat-card {
-      margin: 0;
-      border-radius: 12px !important;
-    }
-    
-    mat-card-header {
-      padding: 20px !important;
-    }
-    
-    mat-card-title {
-      font-size: 24px !important;
-    }
-    
-    mat-card-content {
-      padding: 24px 20px 20px !important;
-    }
-    
-    .form-control {
-      padding: 12px 14px;
-      font-size: 16px; /* Prevents zoom on iOS */
-    }
-    
-    .btn {
-      padding: 12px 20px;
-    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 32px 20px;
   }
-  
-  /* Tablet styles */
-  @media (min-width: 481px) and (max-width: 768px) {
-    .centered-form {
-      max-width: 450px;
-    }
+
+  .login-header mat-card-title {
+    font-size: 1.5rem;
   }
-  
-  /* Desktop styles */
-  @media (min-width: 769px) {
-    .centered-form {
-      max-width: 400px;
-    }
-    
-    mat-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-  }
-  
-  /* PWA specific styles */
-  @media (display-mode: standalone) {
-    body {
-      padding-top: calc(env(safe-area-inset-top, 0px) + 16px);
-      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
-    }
-  }
-  
-  /* Dark mode support */
-  @media (prefers-color-scheme: dark) {
-    body {
-      background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
-    }
-    
-    mat-card {
-      background: rgba(45, 55, 72, 0.95) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      color: white;
-    }
-    
-    mat-card-content {
-      background: #2d3748 !important;
-      color: white;
-    }
-    
-    .form-control {
-      background: #4a5568;
-      border-color: #718096;
-      color: white;
-    }
-    
-    .form-control:focus {
-      background: #2d3748;
-      border-color: #667eea;
-    }
-    
-    .form-control::placeholder {
-      color: #a0aec0;
-    }
-  }
-  
-  /* Focus visible for accessibility */
-  .btn:focus-visible,
-  .form-control:focus-visible {
-    outline: 2px solid #667eea;
-    outline-offset: 2px;
-  }
-  
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    mat-card {
-      border: 2px solid #000 !important;
-    }
-    
-    .form-control {
-      border-width: 2px;
-    }
-    
-    .btn-primary {
-      background: #000;
-      border: 2px solid #000;
-    }
-  }
+}
