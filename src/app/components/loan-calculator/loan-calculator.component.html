@@ -1,35 +1,100 @@
-<!-- loan-calculator.component.html -->
-<div class="calculator-container">
-  <form [formGroup]="loanForm" (ngSubmit)="calculate()">
-    <div class="form-group">
-      <label>Loan Amount</label>
-      <input type="number" formControlName="amount" class="form-control" />
+<div class="calculator-page">
+
+  <!-- Hero / Header -->
+  <header class="calc-hero">
+    <h1>💰 Loan Calculator</h1>
+    <p class="subtitle">Experiment with loan amount, interest, and tenure — see instant EMI, total cost, and amortization.</p>
+    <button class="reset-btn" (click)="reset()">🔄 Reset</button>
+  </header>
+
+  <!-- Main grid -->
+  <section class="calc-grid">
+
+    <!-- INPUTS -->
+    <div class="card inputs-card">
+      <form [formGroup]="loanForm" (ngSubmit)="calculate()" novalidate>
+
+        <div class="field">
+          <label>Loan Amount (₹)</label>
+          <input type="number" formControlName="amount" min="0" placeholder="Enter amount" />
+        </div>
+
+        <div class="field">
+          <label>Interest Rate (%)</label>
+          <input type="number" formControlName="rate" min="0" step="0.01" placeholder="Annual interest rate" />
+        </div>
+
+        <div class="field">
+          <label>Tenure (Years)</label>
+          <input type="number" formControlName="years" min="0.1" step="0.5" placeholder="Loan tenure in years" />
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="calc-btn" [disabled]="loanForm.invalid">Calculate EMI</button>
+          <button type="button" class="csv-btn" (click)="downloadSchedule()" [disabled]="!amortization.length">📥 Download CSV</button>
+        </div>
+
+      </form>
     </div>
 
-    <div class="form-group">
-      <label>Interest Rate (%)</label>
-      <input type="number" formControlName="rate" class="form-control" />
+    <!-- RESULTS -->
+    <!-- RESULTS CARD -->
+    <div class="card results-card" *ngIf="emi !== null">
+      <div class="results-header">
+        <h2>Monthly EMI</h2>
+        <p class="description">Quick summary of your loan calculations</p>
+      </div>
+
+      <div class="emi-value">
+        <div class="currency">₹</div>
+        <div class="amount">{{ emi | number:'1.2-2' }}</div>
+      </div>
+
+      <div class="summary-cards">
+        <div class="summary-item total-payment">
+          <div class="label">Total Payment</div>
+          <div class="value">₹ {{ totalPayment | number:'1.2-2' }}</div>
+        </div>
+
+        <div class="summary-item total-interest">
+          <div class="label">Total Interest</div>
+          <div class="value">₹ {{ totalInterest | number:'1.2-2' }}</div>
+        </div>
+
+        <div class="summary-item tenure">
+        <div class="label">Tenure</div>
+        <div class="value">{{ months }} months</div>
+      </div>
+
+      </div>
+
+      <!-- Mini Amortization Table -->
+      <div class="emi-table-card" *ngIf="amortization.length">
+      <h3>Monthly EMI Breakdown</h3>
+      <div class="table-wrapper">
+        <table class="emi-table">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Principal (₹)</th>
+              <th>Interest (₹)</th>
+              <th>Balance (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let r of amortization">
+              <td>{{ r.month }}</td>
+              <td>{{ r.principal | number:'1.2-2' }}</td>
+              <td>{{ r.interest | number:'1.2-2' }}</td>
+              <td>{{ r.balance | number:'1.2-2' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label>Tenure (Years)</label>
-      <input type="number" formControlName="years" class="form-control" />
     </div>
 
-    <button type="submit" class="btn-calc">Calculate EMI</button>  
-  </form>
 
-  <div style="text-align:center; margin-top:20px;">
-  <h2>Counter Value: {{ count$ | async }}</h2>
-
-  <button (click)="onIncrement()">➕ Increment</button>
-  <button (click)="onDecrement()">➖ Decrement</button>
-</div>
-
-  <div *ngIf="emi !== null" class="results">
-    <h3>Results</h3>
-    <p>Monthly EMI: <strong>{{ emi | currency:'INR' }}</strong></p>
-    <p>Total Payment: <strong>{{ totalPayment | currency:'INR' }}</strong></p>
-    <p>Total Interest: <strong>{{ totalInterest | currency:'INR' }}</strong></p>
-  </div>
+  </section>  
 </div>

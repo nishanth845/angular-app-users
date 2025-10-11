@@ -1,33 +1,28 @@
 <div class="contact-container">
+
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>Contact Us</h1>
-    <p>We’re here to help you with your loan queries.</p>
-  </section>
-
-  <section class="progressive-steps">
-    <div class="step">
-      <h2>1. Visit Us</h2>
-      <p>123 Finance Street, Bengaluru, India</p>
-    </div>
-
-    <div class="step">
-      <h2>2. Call Us</h2>
-      <p>+91 98765 43210</p>
-    </div>
-
-    <div class="step">
-      <h2>3. Email Us</h2>
-      <p>support&#64;loanapp.com</p>
-    </div>
-
-    <div class="step">
-      <h2>4. Support Hours</h2>
-      <p>Mon - Fri, 9:00 AM - 6:00 PM</p>
+    <div class="hero-content">
+      <mat-icon class="hero-icon" color="accent">support_agent</mat-icon>
+      <h1>Contact <span>LoanApp</span></h1>
+      <p>We’re here to help you with your loan queries and support needs.</p>
     </div>
   </section>
 
+  <!-- Contact Options -->
+  <section class="contact-options">
+    <div class="option" *ngFor="let item of contactItems">
+      <mat-icon class="option-icon" color="primary">{{ item.icon }}</mat-icon>
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.desc }}</p>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
   <section class="form-section">
     <h2>Send Us a Message</h2>
+    <p>We’ll get back to you as soon as possible.</p>
+
     <form>
       <div class="form-group">
         <label for="name">Full Name</label>

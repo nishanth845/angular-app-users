@@ -2,39 +2,33 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Welcome to LoanApp</h1>
-    <p>Your trusted partner for quick, simple, and secure loans.</p>
-    <button mat-raised-button color="primary">Apply Now</button>
+    <div class="hero-content">
+      <h1>Welcome to <span>LoanApp</span></h1>
+      <p>Your trusted partner for quick, simple, and secure loans.</p>
+      <button mat-raised-button color="primary" class="hero-btn">
+        <mat-icon>arrow_forward</mat-icon>
+        Apply Now
+      </button>
+    </div>
   </section>
 
-  <!-- Progressive Features -->
+  <!-- Progressive Steps -->
   <section class="progressive-steps">
-    <div class="step">
-      <h2>1. Apply Online</h2>
-      <p>Fill out a quick online form — no paperwork required.</p>
-    </div>
-
-    <div class="step">
-      <h2>2. Instant Approval</h2>
-      <p>Our AI checks your details and approves your loan in minutes.</p>
-    </div>
-
-    <div class="step">
-      <h2>3. Quick Disbursement</h2>
-      <p>Funds are transferred directly into your bank account instantly.</p>
-    </div>
-
-    <div class="step">
-      <h2>4. Easy Repayment</h2>
-      <p>Choose flexible EMI plans that suit your needs.</p>
+    <div class="step" *ngFor="let s of steps">
+      <mat-icon class="step-icon" color="primary">{{ s.icon }}</mat-icon>
+      <h2>{{ s.title }}</h2>
+      <p>{{ s.desc }}</p>
     </div>
   </section>
 
-  <!-- Call To Action -->
+  <!-- CTA Section -->
   <section class="cta">
     <h2>Ready to get started?</h2>
     <p>Join thousands of happy customers who trust LoanApp for their financial needs.</p>
-    <button mat-stroked-button color="accent">Get Started</button>
+    <button mat-stroked-button color="accent" class="cta-btn">
+      <mat-icon>touch_app</mat-icon>
+      Get Started
+    </button>
   </section>
 
 </div>

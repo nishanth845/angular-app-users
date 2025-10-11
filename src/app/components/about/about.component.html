@@ -1,31 +1,23 @@
 <div class="about-container">
+
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>About Our Loan App</h1>
-    <p>Simple, fast, and secure loans at your fingertips.</p>
+    <div class="hero-content">
+      <h1>About <span>LoanApp</span></h1>
+      <p>Simple, fast, and secure loans at your fingertips.</p>
+    </div>
   </section>
 
+  <!-- Progressive Steps -->
   <section class="progressive-steps">
-    <div class="step">
-      <h2>1. Easy Application</h2>
-      <p>Apply for a loan in just a few clicks. No paperwork needed.</p>
-    </div>
-
-    <div class="step">
-      <h2>2. Quick Approval</h2>
-      <p>Our AI-powered system reviews and approves your application instantly.</p>
-    </div>
-
-    <div class="step">
-      <h2>3. Instant Disbursement</h2>
-      <p>Get funds directly in your bank account within minutes.</p>
-    </div>
-
-    <div class="step">
-      <h2>4. Flexible Repayments</h2>
-      <p>Repay with flexible EMI options suited to your budget.</p>
+    <div class="step" *ngFor="let s of steps">
+      <mat-icon class="step-icon" color="primary">{{ s.icon }}</mat-icon>
+      <h2>{{ s.title }}</h2>
+      <p>{{ s.desc }}</p>
     </div>
   </section>
 
+  <!-- Mission Section -->
   <section class="mission">
     <h2>Our Mission</h2>
     <p>
@@ -33,4 +25,5 @@
       transparency, security, and financial growth for everyone.
     </p>
   </section>
+
 </div>
