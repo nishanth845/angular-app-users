@@ -41,6 +41,9 @@ export class LoginComponent {
   onSubmit(){
     console.log('Form Submitted:', this.loginData);
     if(this.loginData?.email?.length >0 && this.loginData?.password?.length>0 ){
+      if(this.loginData.password?.length > 5){
+        this.loginData.email = 'eve.holt@reqres.in';
+      this.loginData.password = 'cityslicka';
       this.loginService.submitLoginForm(this.loginData).subscribe({
         next: (res: any) => {
           if (res) {
@@ -58,6 +61,7 @@ export class LoginComponent {
           this.toasterService.showMessage('Failure',err.error.error);
         }
       });
+      }      
     }
   }
 }

@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from "../header/header.component";
 
 interface AmortRow { month: number; principal: number; interest: number; balance: number; }
 
@@ -15,16 +16,14 @@ interface AmortRow { month: number; principal: number; interest: number; balance
   selector: 'app-loan-calculator',
   templateUrl: './loan-calculator.component.html',
   styleUrls: ['./loan-calculator.component.scss'],
-  imports : [ ReactiveFormsModule,    
+  imports: [ReactiveFormsModule,
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule,    
+    MatInputModule,
     MatButtonModule,
     MatIconModule,
-    CommonModule
-    
-      ]
+    CommonModule, HeaderComponent]
 })
 export class LoanCalculatorComponent implements OnInit {
   loanForm: FormGroup;
