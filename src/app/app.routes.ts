@@ -25,6 +25,11 @@ export const routes: Routes = [
     path: 'calculator',
     loadComponent: () =>
       import('../app/components/loan-calculator/loan-calculator.component').then(m => m.LoanCalculatorComponent),
+  },
+  {
+    path: 'loan-form',
+    loadComponent: () =>
+      import('../app/components/loan-form/loan-form.component').then(m => m.LoanFormComponent),
   }
 ];
 
