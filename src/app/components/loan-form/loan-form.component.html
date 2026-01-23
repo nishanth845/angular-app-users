@@ -1,0 +1,109 @@
+
+<div class="loan-form-container">
+    <mat-horizontal-stepper linear>
+      <!-- STEP 1 -->
+      <mat-step [stepControl]="personalForm">
+        <form [formGroup]="personalForm">
+          <h2>Personal Details</h2>
+          <mat-form-field appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="fullName" />
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput type="date" formControlName="dob" />
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" />
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <textarea matInput formControlName="address"></textarea>
+          </mat-form-field>
+    
+          <button mat-raised-button matStepperNext color="primary">Next</button>
+        </form>
+      </mat-step>
+    
+      <!-- STEP 2 -->
+      <mat-step [stepControl]="incomeForm">
+        <form [formGroup]="incomeForm">
+          <h2>Income Details</h2>
+          <mat-form-field appearance="outline">
+            <mat-label>Occupation</mat-label>
+            <input matInput formControlName="occupation" />
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Annual Income</mat-label>
+            <input matInput type="number" formControlName="annualIncome" />
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Employer</mat-label>
+            <input matInput formControlName="employer" />
+          </mat-form-field>
+          
+    
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperNext color="primary">Next</button>
+        </form>
+      </mat-step>
+    
+      <!-- STEP 3 -->
+      <mat-step [stepControl]="loanForm">
+        <form [formGroup]="loanForm">
+          <h2>Loan Details</h2>
+          <mat-form-field appearance="outline">
+            <mat-label>Loan Type</mat-label>
+            <input matInput formControlName="loanType" />
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Loan Amount</mat-label>
+            <input matInput type="number" formControlName="amount" />
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Tenure (months)</mat-label>
+            <input matInput type="number" formControlName="tenure" />
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Interest Rate (%)</mat-label>
+            <input matInput type="number" formControlName="interestRate" />
+          </mat-form-field>
+    
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperNext color="primary">Next</button>
+        </form>
+      </mat-step>
+    
+      <!-- STEP 4 -->
+      <mat-step [stepControl]="documentForm">
+        <form [formGroup]="documentForm">
+          <h2>Please Upload AADHAR and PAN Card for verification.</h2>
+          <input type="file" multiple (change)="onFileSelected($event)" />
+    
+          <div *ngIf="selectedFiles.length">
+            <p>Selected files:</p>
+            <ul>
+              <li *ngFor="let f of selectedFiles">{{ f.name }}</li>
+            </ul>
+          </div>
+    
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-raised-button color="primary" (click)="submitAll()">Submit</button>
+        </form>
+      </mat-step>
+    </mat-horizontal-stepper>
+</div>

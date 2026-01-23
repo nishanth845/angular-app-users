@@ -1,0 +1,198 @@
+/* 🌈 PWA-Ready Contact Page with Modern UI */
+
+.contact-container {
+  font-family: "Poppins", sans-serif;
+  color: #2c3e50;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  width: 100%;
+  background: linear-gradient(135deg, #e8f0fe, #f0f7ff);
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .hero-content {
+    max-width: 700px;
+
+    .hero-icon {
+      font-size: 60px;
+      margin-bottom: 10px;
+      color: #3f51b5;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #1a237e;
+
+      span {
+        color: #3f51b5;
+      }
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: #546e7a;
+      margin-top: 12px;
+    }
+  }
+}
+
+/* ---------- Contact Options ---------- */
+.contact-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+  width: 90%;
+  max-width: 1000px;
+  margin: 50px 0;
+
+  .option {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 28px 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .option-icon {
+      font-size: 42px;
+      color: #3f51b5;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a237e;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #546e7a;
+    }
+  }
+}
+
+/* ---------- Form Section ---------- */
+.form-section {
+  background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+  color: #fff;
+  padding: 60px 20px;
+  width: 100%;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: #e8eaf6;
+    margin-bottom: 24px;
+  }
+
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    color: #2c3e50;
+    border-radius: 16px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    text-align: left;
+
+    .form-group {
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: 500;
+        margin-bottom: 6px;
+        color: #1a237e;
+      }
+
+      input,
+      textarea {
+        border: 1px solid #c5cae9;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 0.95rem;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #3f51b5;
+          box-shadow: 0 0 4px rgba(63, 81, 181, 0.4);
+        }
+      }
+    }
+
+    .submit-btn {
+      background: #3f51b5;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background: #3949ab;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+/* ---------- Animation ---------- */
+.hero, .option, .form-section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.option:nth-child(1) { animation-delay: 0.1s; }
+.option:nth-child(2) { animation-delay: 0.2s; }
+.option:nth-child(3) { animation-delay: 0.3s; }
+.option:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .form-section form {
+    padding: 20px 15px;
+  }
+}

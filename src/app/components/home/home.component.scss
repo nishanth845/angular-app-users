@@ -1,0 +1,156 @@
+/* 🌤 Clean, PWA-ready styling for LoanApp */
+
+.home-container {
+  font-family: "Poppins", sans-serif;
+  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  width: 100%;
+  min-height: 80vh;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+
+  .hero-content {
+    max-width: 700px;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #1a237e;
+
+    span {
+      color: #3f51b5;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin: 16px 0 28px;
+    color: #455a64;
+  }
+
+  .hero-btn {
+    height: 48px;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0 24px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 10px rgba(63, 81, 181, 0.25);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #3949ab !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(63, 81, 181, 0.4);
+    }
+  }
+}
+
+/* ---------- Progressive Steps ---------- */
+.progressive-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 60px 0;
+  text-align: center;
+
+  .step {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .step-icon {
+      font-size: 48px;
+      color: #3f51b5;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1a237e;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #546e7a;
+    }
+  }
+}
+
+/* ---------- CTA Section ---------- */
+.cta {
+  width: 100%;
+  background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 24px;
+    color: #e8eaf6;
+  }
+
+  .cta-btn {
+    border-radius: 8px;
+    font-weight: 600;
+    color: #fff !important;
+    border-color: #fff !important;
+    padding: 10px 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.3s, transform 0.3s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .progressive-steps {
+    margin: 40px 0;
+  }
+
+  .cta h2 {
+    font-size: 1.6rem;
+  }
+}

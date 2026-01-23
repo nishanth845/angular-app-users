@@ -1,0 +1,145 @@
+/* 🌤 Elegant, PWA-Ready About Page */
+
+.about-container {
+  font-family: "Poppins", sans-serif;
+  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  width: 100%;
+  min-height: 60vh;
+  background: linear-gradient(135deg, #e8f0fe, #dbe9ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+
+  .hero-content {
+    max-width: 700px;
+  }
+
+  h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #1a237e;
+
+    span {
+      color: #3f51b5;
+    }
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: #455a64;
+    margin-top: 14px;
+  }
+}
+
+/* ---------- Progressive Steps ---------- */
+.progressive-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 60px 0;
+  text-align: center;
+
+  .step {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .step-icon {
+      font-size: 46px;
+      color: #3f51b5;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a237e;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #546e7a;
+    }
+  }
+}
+
+/* ---------- Mission Section ---------- */
+.mission {
+  width: 100%;
+  background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 1rem;
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #e8eaf6;
+  }
+}
+
+/* ---------- Animations ---------- */
+.hero, .step, .mission {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.step:nth-child(1) { animation-delay: 0.1s; }
+.step:nth-child(2) { animation-delay: 0.2s; }
+.step:nth-child(3) { animation-delay: 0.3s; }
+.step:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .mission h2 {
+    font-size: 1.6rem;
+  }
+
+  .mission p {
+    font-size: 0.95rem;
+  }
+}

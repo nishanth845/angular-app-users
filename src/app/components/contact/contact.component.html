@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div class="contact-container">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <mat-icon class="hero-icon" color="accent">support_agent</mat-icon>
+      <h1>Contact <span>LoanApp</span></h1>
+      <p>We’re here to help you with your loan queries and support needs.</p>
+    </div>
+  </section>
+
+  <!-- Contact Options -->
+  <section class="contact-options">
+    <div class="option" *ngFor="let item of contactItems">
+      <mat-icon class="option-icon" color="primary">{{ item.icon }}</mat-icon>
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.desc }}</p>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="form-section">
+    <h2>Send Us a Message</h2>
+    <p>We’ll get back to you as soon as possible.</p>
+
+    <form>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="4" placeholder="Write your message"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </section>
+</div>
